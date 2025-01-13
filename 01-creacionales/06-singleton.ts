@@ -35,6 +35,40 @@ class DragonBalls {
       );
       return;
     }
-    console.log('Ya se han recolectado las pelotas del dragon');
+
+    console.log("Ya se han recolectado las esferas del dragon");
+  }
+
+  summonShenlong() {
+    if (this.ballsCollected === 7) {
+      console.log("Shenlong ha sido invocado, pide tu deseo");
+      this.ballsCollected = 0;
+      return;
+    }
+
+    console.log(
+      `Aun faltan ${7 - this.ballsCollected} pelotas para invocar a Shenlong`
+    );
   }
 }
+
+function main() {
+  const gokuDragonBalls = DragonBalls.getInstance();
+
+  gokuDragonBalls.collectBall();
+  gokuDragonBalls.collectBall();
+  gokuDragonBalls.collectBall();
+
+  gokuDragonBalls.summonShenlong();
+
+  const vegetaDragonBalls = DragonBalls.getInstance();
+
+  vegetaDragonBalls.collectBall();
+  vegetaDragonBalls.collectBall();
+  vegetaDragonBalls.collectBall();
+  vegetaDragonBalls.collectBall();
+
+  gokuDragonBalls.summonShenlong();
+}
+
+main();
